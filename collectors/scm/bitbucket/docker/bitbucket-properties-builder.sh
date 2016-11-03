@@ -60,6 +60,8 @@ git.pageSize=${BITBUCKET_PAGE_SIZE,-25}
 # More information can be found here: href="https://github.com/capitalone/Hygieia/issues/609
 git.product=${BITBUCKET_PRODUCT:-cloud}
 
+git.key=8cKix6s9lPjOec7VW50HvJ3pQDJ/5kUm
+
 EOF
 
 echo "
@@ -70,5 +72,5 @@ Note: passwords hidden
 ===========================================
 `cat $PROP_FILE |egrep -vi password`
  "
-
-exit 0
+java -jar bitbucket-scm-collector*.jar --spring.config.location=/hygieia/hygieia-bitbucket-scm-collector.properties
+# exit 0

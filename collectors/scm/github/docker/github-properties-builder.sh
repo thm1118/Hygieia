@@ -60,4 +60,5 @@ Note: passwords hidden
 `cat $PROP_FILE |egrep -vi password`
  "
 
-exit 0
+java -jar github-scm-collector*.jar --spring.config.location=/hygieia/hygieia-github-scm-collector.properties
+# exit 0

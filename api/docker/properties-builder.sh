@@ -7,6 +7,7 @@ if [ "$MONGO_PORT" != "" ]; then
   export SPRING_DATA_MONGODB_PORT=`echo $MONGO_PORT|sed 's;.*://\([^:]*\):\(.*\);\2;'`
 fi
 
+echo "MONGO_PORT: $MONGO_PORT, $MONGO_HOST"
 echo "SPRING_DATA_MONGODB_HOST: $SPRING_DATA_MONGODB_HOST"
 echo "SPRING_DATA_MONGODB_PORT: $SPRING_DATA_MONGODB_PORT"
 
@@ -22,8 +23,15 @@ dbhost=${SPRING_DATA_MONGODB_HOST:-10.0.1.1}
 dbport=${SPRING_DATA_MONGODB_PORT:-9999}
 
 #Database Username - default is blank
-dbusername=${SPRING_DATA_MONGODB_USERNAME:-db}
+dbusername=${SPRING_DATA_MONGODB_USERNAME:-dashboarduser}
 
 #Database Password - default is blank
-dbpassword=${SPRING_DATA_MONGODB_PASSWORD:-dbpass}
+dbpassword=${SPRING_DATA_MONGODB_PASSWORD:-dbpassword}
+
+key=8cKix6s9lPjOec7VW50HvJ3pQDJ/5kUm
 EOF
+
+cat /hygieia/dashboard.properties
+
+
+java -Djava.security.egd=file:/dev/./urandom -jar api.jar --spring.config.location=/hygieia/dashboard.properties

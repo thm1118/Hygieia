@@ -3,16 +3,13 @@ FROM docker.io/java:openjdk-8-jdk
 
 MAINTAINER Hygieia@capitalone.com
 
-RUN \
-
-  mkdir  /hygieia
+RUN mkdir  /hygieia
 
 COPY *.jar /hygieia/
 COPY jira-properties-builder.sh /hygieia/
-
+RUN chmod +x /hygieia/jira-properties-builder.sh
 WORKDIR /hygieia/
 
 VOLUME ["/hygieia/logs"]
 
-CMD ./jira-properties-builder.sh &&\
-	 java -jar jira-feature-collector*.jar --spring.config.location=hygieia-jira-feature-collector.properties
+CMD ["/bin/bash","/hygieia/jira-properties-builder.sh"]

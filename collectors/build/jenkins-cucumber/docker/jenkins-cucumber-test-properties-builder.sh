@@ -94,5 +94,5 @@ Note: passwords & apiKey hidden
 ===========================================
 `cat $PROP_FILE |egrep -vi 'password|apiKey'`
 "
-
-exit 0
+java -jar jenkins-cucumber-test-collector*.jar --spring.config.location=/hygieia/hygieia-jenkins-cucumber-test-collector.properties
+# exit 0

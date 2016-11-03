@@ -79,4 +79,5 @@ Note: passwords hidden
 `cat $PROP_FILE |egrep -vi password`
  "
 
-exit 0
+java -jar sonar-codequality-collector*.jar --spring.config.location=/hygieia/hygieia-sonar-codequality-collector.properties
+# exit 0

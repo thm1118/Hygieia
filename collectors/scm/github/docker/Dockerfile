@@ -8,11 +8,11 @@ RUN \
 
 COPY *.jar /hygieia/
 COPY github-properties-builder.sh /hygieia/
-
+RUN chmod +x /hygieia/github-properties-builder.sh
 WORKDIR /hygieia
 
 VOLUME ["/hygieia/logs"]
 
-CMD ./github-properties-builder.sh && \
-  java -jar github-scm-collector*.jar --spring.config.location=/hygieia/hygieia-github-scm-collector.properties
+CMD ["/bin/bash", "/hygieia//github-properties-builder.sh"]
+
 

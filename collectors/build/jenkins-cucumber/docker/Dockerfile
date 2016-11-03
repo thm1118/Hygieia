@@ -8,11 +8,10 @@ RUN \
 
 COPY *.jar /hygieia/
 COPY jenkins-cucumber-test-properties-builder.sh /hygieia/
-
+RUN chmod +x /hygieia/jenkins-cucumber-test-properties-builder.sh
 WORKDIR /hygieia
 
 VOLUME ["/hygieia/logs"]
 
-CMD ./jenkins-cucumber-test-properties-builder.sh && \
-  java -jar jenkins-cucumber-test-collector*.jar --spring.config.location=/hygieia/hygieia-jenkins-cucumber-test-collector.properties
+CMD ["/bin/bash","/hygieia/jenkins-cucumber-test-properties-builder.sh"]
 

@@ -7,7 +7,7 @@ RUN \
   mkdir /hygieia
 
 COPY *.jar /hygieia/
-COPY application.properties /hygieia/
+#COPY application.properties /hygieia/
 WORKDIR /hygieia
 
 VOLUME ["/hygieia/logs"]

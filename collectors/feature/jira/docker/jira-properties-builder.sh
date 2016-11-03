@@ -127,6 +127,9 @@ feature.jiraEpicIdFieldName=${JIRA_EPIC_FIELD_NAME:-customfield_10400}
 # https://[your-jira-domain-name]/rest/api/2/issue/[some-issue-name]
 feature.jiraStoryPointsFieldName=${JIRA_STORY_POINTS_FIELD_NAME:-customfield_10002}
 
+logging.level.com.capitalone.dashboard.collector=DEBUG
+logging.level.com.capitalone.dashboard=DEBUG
+
 EOF
 
 echo "
@@ -135,4 +138,6 @@ Properties file created:  $PROP_FILE
 Note: passwords hidden
 ===========================================
 `cat $PROP_FILE |egrep -vi 'password|Credentials'`
-" 
+"
+
+java -jar jira-feature-collector*.jar --spring.config.location=hygieia-jira-feature-collector.properties

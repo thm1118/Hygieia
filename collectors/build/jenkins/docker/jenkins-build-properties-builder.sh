@@ -109,4 +109,5 @@ Note: passwords & apiKey hidden
 `cat $PROP_FILE |egrep -vi 'password|apiKey'`
 "
 
-exit 0
+java -jar jenkins-build-collector*.jar --spring.config.location=/hygieia/hygieia-jenkins-build-collector.properties
+# exit 0
